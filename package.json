@@ -5,11 +5,34 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "lint": "eslint --ext \".ts,.tsx,.js,.mjs,.vue,.html\" --ignore-path .gitignore .",
+    "lintfix": "eslint --fix --ext \".ts,.tsx,.js,.mjs,.vue,.html\" --ignore-path .gitignore .",
+    "prepare": "husky install"
   },
   "devDependencies": {
+    "@nuxt/test-utils": "^3.1.2",
+    "@nuxtjs/eslint-config-typescript": "^12.0.0",
+    "@rushstack/eslint-patch": "^1.2.0",
+    "@testing-library/vue": "^6.6.1",
+    "@vitejs/plugin-vue": "^4.0.0",
+    "@vue/eslint-config-prettier": "^7.0.0",
+    "@vue/eslint-config-typescript": "^11.0.2",
+    "@vue/test-utils": "^2.2.10",
+    "eslint": "^8.33.0",
+    "eslint-config-typescript": "^3.0.0",
+    "eslint-plugin-nuxt": "^4.0.0",
+    "eslint-plugin-vue-scoped-css": "^2.4.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.1.0",
     "nuxt": "^3.1.2",
+    "prettier": "^2.8.3",
     "typescript": "^4.9.5",
     "vue-tsc": "^1.0.24"
+  },
+  "lint-staged": {
+    "**/*.{js,mjs,jsx,ts,tsx,vue,html,}": [
+      "yarn lintfix"
+    ]
   }
 }
